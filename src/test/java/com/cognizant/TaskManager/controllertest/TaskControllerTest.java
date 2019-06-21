@@ -40,7 +40,7 @@ public class TaskControllerTest {
 
 	@Test
 	public void getAllTasksTest() {
-		Mockito.when(taskService.getAllTasks()).thenReturn(new TaskMockData().getTaskList());
+		Mockito.when(taskService.getAllTasks()).thenReturn(new TaskMockData().getTaskRecordList());
 		List<TaskRecord> output = taskController.getAllTasks();
 		Assert.assertEquals(2, output.size());
 	}
@@ -53,13 +53,6 @@ public class TaskControllerTest {
 		Task output = taskController.updateTask((long) 1, new TaskMockData().getSingleTask());
 
 		Assert.assertEquals(new TaskMockData().getSingleTask().getId(), output.getId());
-	}
-
-	@Test
-	public void deleteTaskTest() {
-		Mockito.when(taskService.deleteTask(Mockito.anyLong())).thenReturn("The Task has been deleted");
-		String output = taskController.deleteTask((long) 1);
-		Assert.assertEquals("The Task has been deleted", output);
 	}
 
 	@Test

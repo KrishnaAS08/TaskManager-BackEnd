@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,10 +12,16 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "task")
+@EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt"}, 
+allowGetters = true)
 public class Task {
 	
 	@Id
@@ -112,15 +119,7 @@ public class Task {
 
 	public Task() {
 		
-	}
-
-	@Override
-	public String toString() {
-		return "Task [id=" + id + ", taskName=" + taskName + ", startDate=" + startDate + ", endDate=" + endDate + ", priority="
-				+ priority + ", parentId=" + parentId + "]";
-	}
-	
-	
+	}	
 	
 
 }

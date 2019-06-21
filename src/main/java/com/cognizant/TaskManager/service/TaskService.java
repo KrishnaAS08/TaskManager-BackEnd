@@ -26,6 +26,27 @@ public class TaskService {
 	@Autowired
 	ParentTaskService parentService;
 	
+	public TaskRecord addTask(TaskRecord taskRecord) {
+		try {
+			logger.info("saving data into data table");
+			System.out.println("taskR>>" + taskRecord);
+			Task task = new Task();
+			task.setTaskName(taskRecord.getTaskName());
+			task.setStartDate(taskRecord.getStartDate());
+			task.setEndDate(taskRecord.getEndDate());
+			task.setPriority(taskRecord.getPriority());
+			task.setStatus(taskRecord.getStatus());
+			task.setParentId(taskRecord.getParentId());
+			repository.save(task);
+			
+			return taskRecord;
+			
+		} catch (Exception e) {
+			logger.log(Level.SEVERE, "Exception occurred while saving all data into task table", e.getMessage());
+			throw e;
+		} 
+	}
+	
 	public List<TaskRecord> getAllTasks() {
 		try {
 			logger.info("getting all data from data table");
@@ -52,27 +73,6 @@ public class TaskService {
 		}
 	}
 	
-	public TaskRecord addTask(TaskRecord taskRecord) {
-		try {
-			logger.info("saving data into data table");
-			System.out.println("taskR>>" + taskRecord);
-			Task task = new Task();
-			task.setTaskName(taskRecord.getTaskName());
-			task.setStartDate(taskRecord.getStartDate());
-			task.setEndDate(taskRecord.getEndDate());
-			task.setPriority(taskRecord.getPriority());
-			task.setStatus(taskRecord.getStatus());
-			task.setParentId(taskRecord.getParentId());
-			repository.save(task);
-			
-			return taskRecord;
-			
-		} catch (Exception e) {
-			logger.log(Level.SEVERE, "Exception occurred while saving all data into task table", e.getMessage());
-			throw e;
-		} 
-	}
-	
 	public Task updateTask(Long id, Task task) {
 		
 		try {
@@ -93,19 +93,7 @@ public class TaskService {
 		}
 	}
 	
-	public String deleteTask(Long id) {
-		
-		try {
-			logger.info("deleting data from task table");
-			repository.deleteById(id);			
-			return "The Task has been deleted";
-			
-		} catch (Exception e) {
-			logger.log(Level.SEVERE, "Exception occurred while deleting data from task table", e.getMessage());
-			throw e;
-		}
-		
-	}
+
 	 public TaskRecord getTaskById(Long id) {
 		 try {
 			 logger.info("getting data from task table");

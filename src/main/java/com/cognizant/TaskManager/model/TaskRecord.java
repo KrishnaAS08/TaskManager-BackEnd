@@ -2,7 +2,6 @@ package com.cognizant.TaskManager.model;
 
 import java.util.Date;
 
-
 public class TaskRecord {
 	
 	private long id;	
@@ -14,6 +13,7 @@ public class TaskRecord {
 	private String parentName;
 	private long parentId;
 
+	
 	public String getParentName() {
 		return parentName;
 	}
@@ -22,6 +22,7 @@ public class TaskRecord {
 		this.parentName = parentName;
 	}
 
+	
 	public long getParentId() {
 		return parentId;
 	}
@@ -93,12 +94,5 @@ public class TaskRecord {
 		this.status = status;
 		this.parentId = parentId;
 	}
-
-	@Override
-	public String toString() {
-		return "TaskRecord [taskId=" + id + ", taskName=" + taskName + ", startDate=" + startDate + ", endDate="
-				+ endDate + ", priority=" + priority + ", status=" + status + ", parentTaskId=" + parentId + "]";
-	}
-	
 	
 }
