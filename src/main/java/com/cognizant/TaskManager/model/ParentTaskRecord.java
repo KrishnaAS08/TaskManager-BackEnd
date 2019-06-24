@@ -2,7 +2,7 @@ package com.cognizant.TaskManager.model;
 
 public class ParentTaskRecord {
 	
-	private long id;
+	private long parentTaskId;
 	
 	private String parentTaskName;
 
@@ -14,12 +14,12 @@ public class ParentTaskRecord {
 		this.parentTaskName = parentTaskName;
 	}
 
-	public long getId() {
-		return id;
+	public long getParentTaskId() {
+		return parentTaskId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setParentTaskId(long parentTaskId) {
+		this.parentTaskId = parentTaskId;
 	}
 
 	public ParentTaskRecord() {

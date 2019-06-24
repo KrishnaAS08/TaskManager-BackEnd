@@ -31,6 +31,7 @@ public class TaskService {
 			logger.info("saving data into data table");
 			System.out.println("taskR>>" + taskRecord);
 			Task task = new Task();
+			task.setTaskId(taskRecord.getTaskId());
 			task.setTaskName(taskRecord.getTaskName());
 			task.setStartDate(taskRecord.getStartDate());
 			task.setEndDate(taskRecord.getEndDate());

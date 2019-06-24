@@ -33,7 +33,7 @@ public class ParentTaskControllerTest {
         .thenReturn(new ParentTaskMockData().getParentTaskRecord());
         ParentTaskRecord output = parentTaskController.addParentTask(new ParentTaskMockData().getParentTaskRecord());
 
-        Assert.assertEquals(new ParentTaskMockData().getParentTaskRecord().getId(), output.getId());
+        Assert.assertEquals(new ParentTaskMockData().getParentTaskRecord().getParentTaskId(), output.getParentTaskId());
         Assert.assertEquals(new ParentTaskMockData().getParentTaskRecord().getParentTaskName(), output.getParentTaskName());
     }
 

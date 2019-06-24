@@ -15,8 +15,8 @@ public class ParentTaskRecordTest {
 	@Test
 	public void testParentTaskRecord() {
 		ParentTaskRecord test = new ParentTaskRecord();
-		test.setId(1l);
-		assertEquals(1l,test.getId());
+		test.setParentTaskId(1l);
+		assertEquals(1l,test.getParentTaskId());
 		test.setParentTaskName("parentTask");
 		assertEquals("parentTask",test.getParentTaskName());
 	}

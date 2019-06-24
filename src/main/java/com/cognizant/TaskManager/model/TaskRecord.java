@@ -13,6 +13,8 @@ public class TaskRecord {
 	private String parentName;
 	private long parentId;
 
+
+
 	public long getTaskId() {
 		return taskId;
 	}
@@ -82,7 +84,7 @@ public class TaskRecord {
 	}
 
 	public TaskRecord(long taskId, String taskName, Date startDate, Date endDate, int priority, String status,
-			long parentId) {
+			String parentName, long parentId) {
 		super();
 		this.taskId = taskId;
 		this.taskName = taskName;
@@ -90,7 +92,10 @@ public class TaskRecord {
 		this.endDate = endDate;
 		this.priority = priority;
 		this.status = status;
+		this.parentName = parentName;
 		this.parentId = parentId;
 	}
+
+
 	
 }

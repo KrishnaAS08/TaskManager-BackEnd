@@ -32,7 +32,7 @@ public class ParentTaskServiceTest {
 
         ParentTaskRecord output =  parentTaskService.addParentTask(new ParentTaskMockData().getParentTaskRecord());
 
-        Assert.assertEquals(new ParentTaskMockData().getParentTaskRecord().getId(), output.getId());
+        Assert.assertEquals(new ParentTaskMockData().getParentTaskRecord().getParentTaskId(), output.getParentTaskId());
         Assert.assertEquals(new ParentTaskMockData().getParentTaskRecord().getParentTaskName(), output.getParentTaskName());
 
     }
@@ -59,7 +59,7 @@ public class ParentTaskServiceTest {
     public void saveTestNavigativeScenario() {    	
     	Mockito.when(parentTaskRepository.save(Mockito.any(ParentTask.class))).thenThrow(RuntimeException.class);
     	ParentTaskRecord output =  parentTaskService.addParentTask(new ParentTaskMockData().getParentTaskRecord());
-        Assert.assertEquals(new ParentTaskMockData().getSingleParentTask().getParentId(), output.getId());
+        Assert.assertEquals(new ParentTaskMockData().getSingleParentTask().getParentId(), output.getParentTaskId());
     }
     
     @Test(expected = RuntimeException.class)

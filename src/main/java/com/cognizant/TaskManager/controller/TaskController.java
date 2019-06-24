@@ -38,13 +38,13 @@ public class TaskController {
 		return taskService.getAllTasks();		
 	}
 	
-	@PutMapping(value = "/updateTask/{id}")
-	public Task updateTask(@PathVariable("id") Long id, @RequestBody Task task) {
+	@PutMapping(value = "/updateTask/{taskId}")
+	public Task updateTask(@PathVariable("taskId") Long id, @RequestBody Task task) {
 		return taskService.updateTask(id, task);		
 	}
 	
-	@GetMapping(value = "/getTask/{id}")
-	public TaskRecord getTaskById(@PathVariable("id") Long id) {
+	@GetMapping(value = "/getTask/{taskId}")
+	public TaskRecord getTaskById(@PathVariable("taskId") Long id) {
 		return taskService.getTaskById(id);
 	}
 	
