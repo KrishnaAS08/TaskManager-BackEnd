@@ -57,7 +57,7 @@ public class TaskServiceTest {
 		Mockito.when(taskRepository.save(Mockito.any(Task.class)))
 		.thenReturn(new TaskMockData().getSingleTask());
 		Task output = taskService.updateTask((long) 1, new TaskMockData().getSingleTask());
-		Assert.assertEquals(new TaskMockData().getSingleTask().getId(), output.getId());
+		Assert.assertEquals(new TaskMockData().getSingleTask().getTaskId(), output.getTaskId());
 	}
 
 	@Test
@@ -84,7 +84,7 @@ public class TaskServiceTest {
 		Mockito.when(taskRepository.save(Mockito.any(Task.class))).thenThrow(RuntimeException.class);
 		Task output = taskService.updateTask((long) 1, new TaskMockData().getSingleTask());
 
-		Assert.assertEquals(new TaskMockData().getSingleTask().getId(), output.getId());
+		Assert.assertEquals(new TaskMockData().getSingleTask().getTaskId(), output.getTaskId());
 	}
 
 	@Test(expected = RuntimeException.class)

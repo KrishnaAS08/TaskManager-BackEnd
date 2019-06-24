@@ -26,7 +26,7 @@ public class Task {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private long taskId;
 	
 	@Column(name = "task")
 	private String taskName;
@@ -50,12 +50,12 @@ public class Task {
 	@Column(name="status")
 	private String status;
 
-	public long getId() {
-		return id;
+	public long getTaskId() {
+		return taskId;
 	}
 
-	public void setId(long id) {
-		this.id = id;
+	public void setTaskId(long taskId) {
+		this.taskId = taskId;
 	}
 
 	public String getTaskName() {
@@ -106,20 +106,21 @@ public class Task {
 		this.status = status;
 	}
 
-	public Task(long id, String taskName, Date startDate, Date endDate, int priority, long parentId, String status) {
+	public Task() {
+		
+	}
+
+	public Task(long taskId, String taskName, Date startDate, Date endDate, int priority, long parentId,
+			String status) {
 		super();
-		this.id = id;
+		this.taskId = taskId;
 		this.taskName = taskName;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.priority = priority;
 		this.parentId = parentId;
 		this.status = status;
-	}
-
-	public Task() {
-		
 	}	
 	
-
+	
 }

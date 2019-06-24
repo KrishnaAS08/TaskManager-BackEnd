@@ -24,14 +24,6 @@ public class ParentTaskRecord {
 
 	public ParentTaskRecord() {
 		
-	}
-
-	public ParentTaskRecord(long id, String parentTaskName) {
-		super();
-		this.id = id;
-		this.parentTaskName = parentTaskName;
-	}
-	
-	
+	}	
 
 }

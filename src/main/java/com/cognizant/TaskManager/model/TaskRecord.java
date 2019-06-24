@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class TaskRecord {
 	
-	private long id;	
+	private long taskId;	
 	private String taskName;	
 	private Date startDate;	
 	private Date endDate;	
@@ -13,7 +13,14 @@ public class TaskRecord {
 	private String parentName;
 	private long parentId;
 
-	
+	public long getTaskId() {
+		return taskId;
+	}
+
+	public void setTaskId(long taskId) {
+		this.taskId = taskId;
+	}
+
 	public String getParentName() {
 		return parentName;
 	}
@@ -21,7 +28,6 @@ public class TaskRecord {
 	public void setParentName(String parentName) {
 		this.parentName = parentName;
 	}
-
 	
 	public long getParentId() {
 		return parentId;
@@ -29,14 +35,6 @@ public class TaskRecord {
 
 	public void setParentId(long parentId) {
 		this.parentId = parentId;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
 	}
 
 	public String getTaskName() {
@@ -83,10 +81,10 @@ public class TaskRecord {
 
 	}
 
-	public TaskRecord(long id, String taskName, Date startDate, Date endDate, int priority, String status,
+	public TaskRecord(long taskId, String taskName, Date startDate, Date endDate, int priority, String status,
 			long parentId) {
 		super();
-		this.id = id;
+		this.taskId = taskId;
 		this.taskName = taskName;
 		this.startDate = startDate;
 		this.endDate = endDate;

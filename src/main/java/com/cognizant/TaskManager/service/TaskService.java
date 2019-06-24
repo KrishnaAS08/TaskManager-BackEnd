@@ -55,7 +55,7 @@ public class TaskService {
 			List<TaskRecord> tlist = new ArrayList<TaskRecord>();
 			for(Task t : tasks) {
 				TaskRecord taskRecord = new TaskRecord();
-				taskRecord.setId(t.getId());
+				taskRecord.setTaskId(t.getTaskId());
 				taskRecord.setTaskName(t.getTaskName());
 				taskRecord.setStartDate(t.getStartDate());
 				taskRecord.setEndDate(t.getEndDate());
@@ -77,16 +77,8 @@ public class TaskService {
 		
 		try {
 			logger.info("updating data in task table");
-			Optional<Task> taskdata = repository.findById(id);
-				Task _task = taskdata.get();
-				_task.setTaskName(task.getTaskName());
-				_task.setStartDate(task.getStartDate());
-				_task.setEndDate(task.getEndDate());
-				_task.setPriority(task.getPriority());
-				_task.setParentId(task.getParentId());
-				_task.setStatus(task.getStatus());
-				repository.save(_task);
-				return _task;
+			task.setTaskId(id);
+			return repository.save(task);
 		} catch (Exception e) {
 			logger.log(Level.SEVERE, "Exception occurred while updating data into task table", e.getMessage());
 			throw e;
@@ -100,7 +92,7 @@ public class TaskService {
 			 Optional<Task> task = repository.findById(id);
 			 Task t = task.get();
 			 TaskRecord taskRecord = new TaskRecord();
-				taskRecord.setId(t.getId());
+				taskRecord.setTaskId(t.getTaskId());
 				taskRecord.setTaskName(t.getTaskName());
 				taskRecord.setStartDate(t.getStartDate());
 				taskRecord.setEndDate(t.getEndDate());

@@ -52,7 +52,7 @@ public class TaskControllerTest {
 				.thenReturn(new TaskMockData().getSingleTask());
 		Task output = taskController.updateTask((long) 1, new TaskMockData().getSingleTask());
 
-		Assert.assertEquals(new TaskMockData().getSingleTask().getId(), output.getId());
+		Assert.assertEquals(new TaskMockData().getSingleTask().getTaskId(), output.getTaskId());
 	}
 
 	@Test
